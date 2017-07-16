@@ -1,1 +1,43 @@
-<p>This is the partial for view 1.</p>
+<h1>Nutritive value / 100 gms of raw ingredients</h1>
+
+<div class="dropdown">    
+    <select ng-model = "foodcategory" ng-options="category.Name for category in foodcategory">
+            <option value="">Choose Category</option>
+    </select>
+ </div>
+
+ <div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Energy(Kcals)</th>
+        <th>Moisture(g)</th>
+        <th>Proteins(g)</th>
+        <th>Fats(g)</th>
+        <th>Minerals(g)</th>
+        <th>Fibre(g)</th>
+        <th>Carbos(g)</th>
+        <th>Calcium(mg)</th>
+        <th>Phosphorous(mg)</th>
+        <th>Iron(mg)</th>
+      </tr>
+    </thead>
+    <tbody>      
+      <tr  ng-repeat="food in foods">
+                <td>{{food.Name}}</td>
+                <td>{{food.Energy}}</td>
+                <td>{{food.Moisture}}</td>
+                <td>{{food.Proteins}}</td>
+                <td>{{food.Fat}}</td>
+                <td>{{food.Minerals}}</td>
+                <td>{{food.Fibre}}</td>
+                <td>{{food.Carbos}}</td>
+                <td>{{food.Calcium}}</td>
+                <td>{{food.Phosphorous}}</td>
+                <td>{{food.Iron}}</td>
+      </tr>
+     </tbody>
+  </table>
+</div>
+
