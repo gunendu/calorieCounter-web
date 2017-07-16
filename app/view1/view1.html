@@ -1,15 +1,15 @@
 <h1>Nutritive value / 100 gms of raw ingredients</h1>
 
-<div class="dropdown">    
-    <select ng-model = "foodcategory" ng-options="category.Name for category in foodcategory">
-            <option value="">Choose Category</option>
-    </select>
- </div>
+<div id="notebooks">
+ 
+<select ng-model = "foodcategory" ng-options="category.Name for category in foodcategory" ng-change="selectedId()">
+        <option value="">Choose Category</option>
+</select>
 
- <div class="container">
+<input type="text" id="query" ng-model="query"/> 
   <table class="table">
     <thead>
-      <tr>
+      <tr>          
         <th>Name</th>
         <th>Energy(Kcals)</th>
         <th>Moisture(g)</th>
@@ -23,8 +23,8 @@
         <th>Iron(mg)</th>
       </tr>
     </thead>
-    <tbody>      
-      <tr  ng-repeat="food in foods">
+    <tbody>
+      <tr  ng-repeat="food in foods | filter:query">
                 <td>{{food.Name}}</td>
                 <td>{{food.Energy}}</td>
                 <td>{{food.Moisture}}</td>
@@ -39,5 +39,4 @@
       </tr>
      </tbody>
   </table>
-</div>
 

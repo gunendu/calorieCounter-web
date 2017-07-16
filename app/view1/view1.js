@@ -24,4 +24,14 @@ angular.module('myApp.view1', ['ngRoute'])
                     console.log(err);
                 }
 
+        $scope.selectedId   = function(cat){
+             console.log("selected cat",$scope.foodcategory);          
+             var categoryId  = $scope.foodcategory.CategoryId;     
+             console.log("selected field",categoryId); 
+             $scope.foods = _.filter($scope.foods,function(food){
+                  return  food.CategoryId == categoryId;
+             })
+
+        }
+
 }]);
