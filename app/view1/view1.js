@@ -7,7 +7,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
         
         $http.get('http://localhost:9000/category')
                 .then(
-                        function(response){                              
+                        function(response){       
                                 $scope.foodcategory = angular.copy(response.data);
                         }),
                         function(err){
@@ -32,6 +32,12 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
                 })
         }
    }
+
+   $scope.showModal = function(){
+          $scope.modalFlag = true; 
+          console.log("show is true",$scope.modalFlag);         
+   }
+        
    $scope.init();
 
 }]);
