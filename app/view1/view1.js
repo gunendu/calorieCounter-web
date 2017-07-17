@@ -2,8 +2,7 @@
 
 var myApp = angular.module('myApp.view1', ['ngRoute'])
 
-myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
-    console.log("this is called");    
+myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){      
     $scope.init = function() {
         
         $http.get('http://localhost:9000/category')
