@@ -24,6 +24,7 @@ angular.module('myApp.version.version-directive', [])
 
            scope.submit = function() {
                 console.log("form info ",scope.form);
+                scope.form.CategoryId = scope.selectedCategory.CategoryId;
                 var config = {
                     headers : {
                         'Content-Type': 'application/x-www-form-urlencoded;application/json;charset=utf-8'
@@ -37,7 +38,7 @@ angular.module('myApp.version.version-directive', [])
                     console.log("data is",response);
                 })
                 .error(function (error){
-                     console.log("error is",error);   
+                     console.log("error is",error);
                 })
             }
         },
