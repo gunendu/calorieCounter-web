@@ -8,10 +8,8 @@ angular.module('myApp.version.version-directive', [])
         scope: {
             show: "=",
             form: "=",
-            categories: "="
-        },
-        replace: true,
-        transclude: true,
+            category: "="
+        },        
         link: function(scope, element, attrs){
             scope.hideModal = function(){
                 scope.show = false;
@@ -22,7 +20,7 @@ angular.module('myApp.version.version-directive', [])
             }
 
            scope.submit = function() {
-                scope.form.CategoryId = scope.selectedCategory.CategoryId;
+                scope.form.CategoryId = scope.category.CategoryId;
                 var config = {
                     headers : {
                         'Content-Type': 'application/x-www-form-urlencoded;application/json;charset=utf-8'

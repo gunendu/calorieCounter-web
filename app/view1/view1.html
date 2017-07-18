@@ -8,10 +8,10 @@
 
 <div>
   <button type="button" class="btn btn-success" ng-click='showModal()'>Add</button>
-  <modal-dialog show='modalFlag' form='food', categories='foodcategory' width='750px' height='60%'> </modal-dialog>
+  <modal-dialog show="modalFlag"  form='food', category='foodcategory' width='750px' height='60%'> </modal-dialog>
 </div>
 
-<input type="text" id="query" ng-model="query" placeholder="Search Food Items"/>s
+<input type="text" id="query" ng-model="query" placeholder="Search Food Items"/>
 <div class="container">
   <table class="table">
     <thead>
@@ -30,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr  ng-repeat="food in tempList | filter:query">
+      <tr  ng-repeat="food in foods | filter:query">
                 <td>{{food.Name}}</td>
                 <td>{{food.Energy}}</td>
                 <td>{{food.Moisture}}</td>
@@ -42,6 +42,9 @@
                 <td>{{food.Calcium}}</td>
                 <td>{{food.Phosphorous}}</td>
                 <td>{{food.Iron}}</td>
+                <td>
+                    <button ng-click="update(food)">Edit</button>
+                </td>
       </tr>
      </tbody>
   </table>

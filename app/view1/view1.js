@@ -12,14 +12,13 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
                                 $scope.foodcategory = angular.copy(response.data);
                         }),
                         function(err){
-                                console.log("error is",err);    
+                                console.log("error is",err);
                                 return $q.reject(err)
                         }
         $http.get('http://localhost:9000/category/foods')
                 .then(
                 function(response){
-                        $scope.foods = response.data;
-                        $scope.tempList = response.data;
+                        $scope.foods = response.data;                        
                 }),
                 function(err){
                         console.log(err);
@@ -28,7 +27,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
     
    $scope.selectedId   = function(categoryId){
         if(categoryId){
-                $scope.tempList = _.filter($scope.foods,function(food){
+                $scope.foods = _.filter($scope.foods,function(food){
                         return  food.CategoryId == categoryId;   
                 })
         }
@@ -36,7 +35,14 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
 
    $scope.showModal = function(){
           $scope.modalFlag = true; 
-          console.log("show is true",$scope.modalFlag);         
+          console.log("show is true",$scope.modalFlag);
+   }
+
+   $scope.update = function(food) {
+           $scope.modalFlag = true;
+           $scope.food = food;
+           $scope.foodcategory = $scope.selectedCategory;
+           console.log("update nitritive value data",$scope.food);           
    }
              
    $scope.init();
