@@ -42,6 +42,18 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
            $scope.modalFlag = true;
            $scope.food = food;             
    }
+  
+   $scope.delete = function(food) {
+           console.log("delete row");          
+           $http.get("http://localhost:9000/nutrition/deleteitem/"+food.Id)
+                .then(
+                function(response){
+                        console.log("delete response is",response);
+                }),
+                function(err){
+                        console.log(err);
+                }     
+   }    
              
    $scope.init();
 

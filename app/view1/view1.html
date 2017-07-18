@@ -1,13 +1,11 @@
 <h1>Nutritive value / 100 gms of raw ingredients</h1>
-
 <div>
   <select class="btn btn-primary dropdown-toggle" ng-model = "selectedCategory" ng-options="category.Name for category in foodcategory" ng-change="selectedId(selectedCategory.CategoryId)">
           <option value="">Choose Category</option>
   </select>
 </div>
-
 <div>
-      <button type="button" class="btn btn-success" ng-click='showModal()'>Add</button>
+      <button type="button" class="btn btn-success pull-right" ng-click='showModal()'>Add</button>
       <modal-dialog show="modalFlag"  form='food', categories='foodcategory',  width='750px' height='60%'> </modal-dialog>
 </div>
 
@@ -43,8 +41,11 @@
                 <td>{{food.Phosphorous}}</td>
                 <td>{{food.Iron}}</td>
                 <td>
-                    <button ng-click="update(food)">Edit</button>
+                    <button class="btn btn-success" ng-click="update(food)">Edit</button>                   
                 </td>
+                <td>
+                    <button class="btn btn-warning" ng-click="delete(food)">Delete</button>
+                </td>    
       </tr>
      </tbody>
   </table>
