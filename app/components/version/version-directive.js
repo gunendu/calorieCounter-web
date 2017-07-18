@@ -13,7 +13,6 @@ angular.module('myApp.version.version-directive', [])
         replace: true,
         transclude: true,
         link: function(scope, element, attrs){
-            console.log("modal dialog called",scope.form,scope.categories);
             scope.hideModal = function(){
                 scope.show = false;
             }
@@ -23,7 +22,6 @@ angular.module('myApp.version.version-directive', [])
             }
 
            scope.submit = function() {
-                console.log("form info ",scope.form);
                 scope.form.CategoryId = scope.selectedCategory.CategoryId;
                 var config = {
                     headers : {
@@ -31,7 +29,6 @@ angular.module('myApp.version.version-directive', [])
                     }
                 }
                 var data = JSON.stringify(scope.form);
-                console.log("json stringify",data);
                 $http.post(
                     'http://localhost:9000/nutrition/foods',data,config)
                 .success(function(response){
