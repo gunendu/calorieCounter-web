@@ -4,7 +4,7 @@ var myApp = angular.module('myApp.view1', ['ngRoute'])
 
 myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
      $scope.food = { };
-    $scope.init = function() {
+     $scope.init = function() {
         
         $http.get('http://localhost:9000/category')
                 .then(
@@ -18,7 +18,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
         $http.get('http://localhost:9000/category/foods')
                 .then(
                 function(response){
-                        $scope.foods = response.data;                        
+                        $scope.foods = response.data;
                 }),
                 function(err){
                         console.log(err);
@@ -28,7 +28,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
    $scope.selectedId   = function(categoryId){
         if(categoryId){
                 $scope.foods = _.filter($scope.foods,function(food){
-                        return  food.CategoryId == categoryId;   
+                        return  food.CategoryId == categoryId;
                 })
         }
    }
@@ -40,9 +40,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
 
    $scope.update = function(food) {
            $scope.modalFlag = true;
-           $scope.food = food;
-           $scope.foodcategory = $scope.selectedCategory;
-           console.log("update nitritive value data",$scope.food);           
+           $scope.food = food;             
    }
              
    $scope.init();

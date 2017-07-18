@@ -8,9 +8,10 @@ angular.module('myApp.version.version-directive', [])
         scope: {
             show: "=",
             form: "=",
-            category: "="
-        },        
+            categories: "="
+        },
         link: function(scope, element, attrs){
+                                                           
             scope.hideModal = function(){
                 scope.show = false;
             }
@@ -30,13 +31,15 @@ angular.module('myApp.version.version-directive', [])
                 $http.post(
                     'http://localhost:9000/nutrition/foods',data,config)
                 .success(function(response){
-                    console.log("data is",response);
+                    console.log("data is",response);                    
                 })
                 .error(function (error){
                      console.log("error is",error);
                 })
+                scope.show = false;
             }
+
         },
-        templateUrl: "view1/modal.html"
+        templateUrl: "view1/modal.html"       
     }
 }]);

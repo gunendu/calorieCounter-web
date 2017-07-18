@@ -3,10 +3,10 @@
   <div class='ng-modal-dialog' ng-style='dialogStyle'>
     <div class='ng-modal-close' ng-click='hideModal()'>X</div>
     <div class='ng-modal-dialog-content'></div>
-    <form ng-submit="submit()">        
+    <form ng-submit="submit()">
             <div class="modal-body">
               <label>Category:</label>
-              <select ng-model = "category" ng-options="category.Name for category in categories" >
+              <select ng-model = "category" ng-options="category.Name for category in categories">
                   <option value="">Choose Category</option>
               </select>
                 <br>
