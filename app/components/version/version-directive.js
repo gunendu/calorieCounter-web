@@ -23,29 +23,16 @@ angular.module('myApp.version.version-directive', [])
             }
 
            scope.submit = function() {
-                //console.log("form info ",scope.form);
-                var data = {
-                    "Id": 1,
-                    "CategoryId": 12,
-                    "Name": "test",
-                    "Energy": 123,
-                    "Moisture": 123,
-                    "Proteins": 123,
-                    "Fat": 123,
-                    "Minerals": 123,
-                    "Fibre": 123,
-                    "Carbos": 123,
-                    "Calcium": 123,
-                    "Phosphorous": 123,
-                    "Iron": 123
-                }
+                console.log("form info ",scope.form);
                 var config = {
                     headers : {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;application/json'
+                        'Content-Type': 'application/x-www-form-urlencoded;application/json;charset=utf-8'
                     }
                 }
+                var data = JSON.stringify(scope.form);
+                console.log("json stringify",data);
                 $http.post(
-                    'http://localhost:9000/nutrition/foods',JSON.stringify(data),config)
+                    'http://localhost:9000/nutrition/foods',data,config)
                 .success(function(response){
                     console.log("data is",response);
                 })
