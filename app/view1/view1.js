@@ -2,12 +2,13 @@
 
 var myApp = angular.module('myApp.view1', ['ngRoute'])
 
-myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){      
+myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
+     $scope.food = { };
     $scope.init = function() {
         
         $http.get('http://localhost:9000/category')
                 .then(
-                        function(response){       
+                        function(response){
                                 $scope.foodcategory = angular.copy(response.data);
                         }),
                         function(err){
@@ -37,7 +38,7 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
           $scope.modalFlag = true; 
           console.log("show is true",$scope.modalFlag);         
    }
-        
+             
    $scope.init();
 
 }]);

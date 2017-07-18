@@ -5,10 +5,8 @@
 </select>
 
 <div>
-  <button ng-click='showModal()'>Open Modal Dialog</button>
-  <modal-dialog show='modalFlag' width='750px' height='60%'>
-    <p>Add<p>
-  </modal-dialog>
+  <button ng-click='showModal()'>Add</button>
+  <modal-dialog show='modalFlag' form='food', categories='foodcategory' width='750px' height='60%'> </modal-dialog>
 </div>
 
 <input type="text" id="query" ng-model="query" placeholder="Search Foods"/>
