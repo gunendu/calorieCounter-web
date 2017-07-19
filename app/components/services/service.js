@@ -19,7 +19,7 @@ myApp.factory('foodService', ['$http','$q',function($http, $q) {
                 }                                                            
 }])
 
-myApp.factory('savePreparation',['$http','$q',function($http,$q){
+myApp.factory('savePreperation',['$http','$q',function($http,$q){
   
     var  save =  function(data){
           var deferred = $q.defer();

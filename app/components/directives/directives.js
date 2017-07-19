@@ -43,7 +43,7 @@ myApp.directive('modalDialog',['$http', function($http) {
     }
 }]);
 
-myApp.directive('preperationModal',['$http','savePreparation',function($http,savePreparation){
+myApp.directive('preperationModal',['$http','savePreperation',function($http,savePreperation){
     return {
         restrict : 'E',
         scope: {
@@ -64,8 +64,13 @@ myApp.directive('preperationModal',['$http','savePreparation',function($http,sav
                 savePreparation.save(data).then(function(response){
                        console.log("response prep",response); 
                 })
-                scope.preperationFlag = false;     
-            }            
+                scope.preperationFlag = false;
+            }
+            
+            scope.fetchItems = function(){
+                console.log("data is",scope.form.Item);
+                scope.arrSearchResults = ["test1","test2","test3"];
+            }
         },
         templateUrl:  "view1/preperationModal.html"
     } 

@@ -7,9 +7,13 @@
             <div class="modal-body">
                 <label>Name:</label>
                 <input type="text" ng-model="form.Name" /></br>
+                <input type="text"  ng-model="form.Item" ng-change="fetchItems()"/></br>
+                <div ng-repeat="searchItem in arrSearchResults">
+                    <p style="border-bottom: 2px solid #000"><br/>{{searchItem}}</p>
+                </div>
             </div>
-            <div class="modal-footer">  
-                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <div class="modal-footer">
+                <button class="btn btn-warning" ng-click="cancel()">Cancel</button>                
                 <input type="submit" class="btn primary-btn" value="Submit" />
             </div>
         </form> 
