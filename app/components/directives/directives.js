@@ -71,7 +71,30 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
                 console.log("data is",scope.form.Item);
                 scope.arrSearchResults = ["test1","test2","test3"];
             }
+
+            scope.selectedItem = function(searchItem) {
+                console.log("selectd item is",searchItem);
+                scope.form.Item = scope.form.Item + "  " +searchItem;
+            }
         },
         templateUrl:  "view1/preperationModal.html"
     } 
 }]);
+
+myApp.directive('txtArea', function() {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        scope: {
+            data: '='
+        },
+        template: "<textarea readonly>{{result()}}</textarea>",
+        link: function(scope, elem, attrs) {
+            scope.result = function() {
+                var ret = ""; 
+                scope.data =  ["test1","test2","test3"];                
+                return scope.data;
+            }
+        }
+    };
+});
