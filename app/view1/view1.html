@@ -7,6 +7,9 @@
 <div>
       <button type="button" class="btn btn-success pull-right" ng-click='showModal()'>Add</button>
       <modal-dialog show="modalFlag"  form='food', categories='foodcategory',  width='750px' height='60%'> </modal-dialog>
+
+     <button type="button" class="btn btn-success" ng-click="showPrepModal()">Preperations</button>
+     <preperation-modal prep="preperationFlag" ></preperation-modal>
 </div>
 
 <input type="text" id="query" ng-model="query" placeholder="Search Food Items"/>

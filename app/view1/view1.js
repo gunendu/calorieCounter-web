@@ -3,7 +3,7 @@
 var myApp = angular.module('myApp.view1', ['ngRoute'])
 
 myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
-     $scope.food = { };
+     $scope.food = { };     
      $scope.init = function() {
         
         $http.get('http://localhost:9000/category')
@@ -41,6 +41,11 @@ myApp.controller('View1Ctrl', ['$scope', '$http',  function($scope,$http){
    $scope.update = function(food) {
            $scope.modalFlag = true;
            $scope.food = food;             
+   }
+
+   $scope.showPrepModal = function(){
+           $scope.preperationFlag = true;
+           console.log("prep flag",$scope.preperationFlag);
    }
   
    $scope.delete = function(food) {
