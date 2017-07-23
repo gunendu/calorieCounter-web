@@ -6,8 +6,8 @@
     <form ng-submit="submit()">
             <div class="modal-body">
                 <label>Name:</label>
-                <input type="text" ng-model="form.Name" /></br>
-                <input type="text" ng-change="fetchItems()" ng-model="form.query"></input> </br>
+                <input type="text" ng-model="form.Name"  placeholder="Preperation Name"/></br>
+                <input type="text" ng-change="fetchItems()" ng-model="form.query" placeholder="Type Ingrediants Name "></input> </br>
                 <textarea ng-model="form.item" rows="5" cols="20"></textarea>
                 <div ng-repeat="searchItem in arrSearchResults" ng-click="selectedItem(searchItem)">
                     <p style="border-bottom: 2px solid #000"><br/>{{searchItem.Name}}</p>

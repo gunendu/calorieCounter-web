@@ -8,7 +8,7 @@
       <button type="button" class="btn btn-success pull-right" ng-click='showModal()'>Add</button>
       <modal-dialog show="modalFlag"  form='food', categories='foodcategory',  width='750px' height='60%'> </modal-dialog>
 
-     <button type="button" class="btn btn-success" ng-click="showPrepModal()">Preperations</button>
+     <button type="button" class="btn btn-success" ng-click="showPrepModal()">New Preperations</button>
      <preperation-modal prep="preperationFlag" ></preperation-modal>
 </div>
 
@@ -46,9 +46,9 @@
                 <td>
                     <button class="btn btn-success" ng-click="update(food)">Edit</button>                   
                 </td>
-                <td>
+                <!--<td>
                     <button class="btn btn-warning" ng-click="delete(food)">Delete</button>
-                </td>    
+                </td>   -->
       </tr>
      </tbody>
   </table>
