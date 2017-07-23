@@ -51,6 +51,7 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
         },
         link: function(scope,element,attrs) {
             console.log("prep modal");
+            var selectedIngrediants = [];
              scope.hideModal = function(){
                 scope.prep= false;
             }
@@ -61,20 +62,30 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
 
             scope.submit = function() {
                 var data = {"Name": scope.form.Name};
-                savePreparation.save(data).then(function(response){
-                       console.log("response prep",response); 
+                savePreperation.save(data).then(function(response){
+                       console.log("response prep",response);
+                        var request_body = {"PreperationsId":response.Id,"NutritionIds":selectedIngrediants};
+                        savePreperation.saveIngrediants(request_body).then(function(response){
+                                console.log("after save",response);
+                        })
                 })
                 scope.preperationFlag = false;
             }
             
             scope.fetchItems = function(){
-                console.log("data is",scope.form.Item);
-                scope.arrSearchResults = ["test1","test2","test3"];
+                console.log("data is",scope.form.query);
+                 savePreperation.fetchIngrediants(scope.form.query).then(function(response){
+                       console.log("fetch ingrediants",response);
+                       scope.arrSearchResults = response;
+                 })
             }
 
             scope.selectedItem = function(searchItem) {
-                console.log("selectd item is",searchItem);
-                scope.form.Item = scope.form.Item + "  " +searchItem;
+                console.log("selected item is",searchItem);
+                selectedIngrediants.push(searchItem.Id);
+                if(!scope.form.item)
+                       scope.form.item = ""; 
+                scope.form.item = scope.form.item + "  " +searchItem.Name;
             }
         },
         templateUrl:  "view1/preperationModal.html"
@@ -92,7 +103,7 @@ myApp.directive('txtArea', function() {
         link: function(scope, elem, attrs) {
             scope.result = function() {
                 var ret = ""; 
-                scope.data =  ["test1","test2","test3"];                
+                scope.data =  ["test1","test2","test3"];
                 return scope.data;
             }
         }
