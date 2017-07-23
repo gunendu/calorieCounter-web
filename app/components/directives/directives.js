@@ -50,7 +50,6 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
             prep: "="
         },
         link: function(scope,element,attrs) {
-            console.log("prep modal");
             var selectedIngrediants = [];
              scope.hideModal = function(){
                 scope.prep= false;
@@ -63,7 +62,6 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
             scope.submit = function() {
                 var data = {"Name": scope.form.Name};
                 savePreperation.save(data).then(function(response){
-                       console.log("response prep",response);
                         var request_body = {"PreperationsId":response.Id,"NutritionIds":selectedIngrediants};
                         savePreperation.saveIngrediants(request_body).then(function(response){
                                 console.log("after save",response);
@@ -73,15 +71,12 @@ myApp.directive('preperationModal',['$http','savePreperation',function($http,sav
             }
             
             scope.fetchItems = function(){
-                console.log("data is",scope.form.query);
                  savePreperation.fetchIngrediants(scope.form.query).then(function(response){
-                       console.log("fetch ingrediants",response);
                        scope.arrSearchResults = response;
                  })
             }
 
             scope.selectedItem = function(searchItem) {
-                console.log("selected item is",searchItem);
                 selectedIngrediants.push(searchItem.Id);
                 if(!scope.form.item)
                        scope.form.item = ""; 
